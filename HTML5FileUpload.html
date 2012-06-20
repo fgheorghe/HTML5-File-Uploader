@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery-ui-1.8.21.custom.min.js"></script>
+
+		<script type="text/javascript" src="HTML5FileDrop.js"></script>
+		<script type="text/javascript" src="HTML5FileUpload.js"></script>
+		<script type="text/javascript" src="HTML5FileUploadWidget.js"></script>
+		<script>
+			$( document ).ready( function() {
+				$( '#fileDrop' ).HTML5FileUploadWidget();
+			} );
+		</script>
+		<style>
+			#dropTarget {
+				height: 400px;
+				width: 800px;
+				border: solid #CCC 1px;
+			}
+			#dropTarget table {
+				text-align: center;
+				height: 400px;
+				width: 800px;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+			}
+			#dropTargetText {
+				height: 400px;
+				width: 800px;
+			}
+			#fileList {
+				border-top: solid #CCC 1px;
+				border-right: solid #CCC 1px;
+				border-left: solid #CCC 1px;
+				width: 800px;
+				display: none;
+			}
+			#fileList div {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				padding: 5px;
+				border-bottom: solid #CCC 1px;
+				width: 790px;
+			}
+			#fileList div img {
+				height: 50px;
+				width: 50px;
+				margin-right: 5px;
+				border: solid #CCC 1px;
+			}
+			#fileListHeader {
+				background-color: whitesmoke;
+				display: none;
+			}
+			#fileListBottom {
+				background-color: whitesmoke;
+				text-align: center;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				padding: 5px;
+				border-right: solid #CCC 1px;
+				border-left: solid #CCC 1px;
+				border-bottom: solid #CCC 1px;
+				width: 790px;
+				display: none;
+			}
+			#fileListBottom a {
+				cursor: pointer;
+				text-decoration: underline;
+			}
+			#uploadProgressBar {
+				height: 10px;
+				background-color: black;
+				width: 0px;
+			}
+			#parseProgressBar {
+				height: 1px !important;
+				border-bottom: solid #CCC 1px;
+				width: 800px !important;
+				display: none;
+				margin: 0px !important;
+				padding: 0px !important;
+			}
+			#parseProgressBarLine {
+				height: 3px !important;
+				background-color: #CCC;
+				margin: 0px !important;
+				padding: 0px !important;
+			}
+			#parseProgressText {
+				background-color: whitesmoke;
+				text-align: center;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				border-bottom: solid #CCC 1px;
+				width: 790px;
+				display: none;
+			}
+			#startUpload {
+				display: none;
+			}
+			#resumeUpload {
+				display: none;
+			}
+			#pauseUpload {
+				display: none;
+			}
+			#cancelUpload {
+				display: none;
+			}
+			#uploadMore {
+				display: none;
+			}
+			#fileProgressBarHolder {
+				width: 800px;
+				border-right: solid #CCC 1px;
+				border-left: solid #CCC 1px;
+			}
+			#fileProgressBar {
+				height: 10px;
+				background-color: green;
+				width: 0px;
+				display: none;
+			}
+			#fileProgressText {
+				background-color: whitesmoke;
+				text-align: left;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: normal;
+				border-right: solid #CCC 1px;
+				border-left: solid #CCC 1px;
+				border-bottom: solid #CCC 1px;
+				width: 790px;
+				display: none;
+				padding: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div name="fileDrop" id="fileDrop">
+			<div name="dropTarget" id="dropTarget">
+				<table>
+					<tbody>
+						<tr valign="middle">
+							<td name="dropTargetText" id="dropTargetText">
+								Drop file(s) here.<br/>
+								NOTE: Only first 8 files / drop will be uploaded. Each file size must be lower than 404MB.
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="progressBar" name="progressBar"></div>
+
+			<div name="fileList" id="fileList">
+				<div id="parseProgressText" name="parseProgressText"></div>
+				<div id="parseProgressBar" name="parseProgressBar"><div id="parseProgressBarLine" name="parseProgressBarLine"></div></div>
+				<div name="fileListHeader" id="fileListHeader">
+					<table width="100%" height="100%">
+						<tbody>
+							<tr valign="middle">
+								<td name="infoText" id="infoText">
+									Select files to upload
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div name="fileProgressText" id="fileProgressText"></div>
+			<div name="fileProgressBarHolder" id="fileProgressBarHolder"><div name="fileProgressBar" id="fileProgressBar"></div></div>
+
+			<div name="fileListBottom" id="fileListBottom">
+				<a id="uploadMore" name="uploadMore">Upload More</a>
+				<a id="startUpload" name="startUpload">Start Upload</a>
+				<a id="resumeUpload" name="resumeUpload">Resume Upload</a>
+				<a id="pauseUpload" name="pauseUpload">Pause Upload</a>
+				<a id="cancelUpload" name="cancelUpload">Cancel Upload(s)</a>
+			</div>
+		</div>
+	</body>
+</html>
