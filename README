@@ -1,1 +1,15 @@
-TODO: Add install documentation here.
+Javascript REQUIREMENTS:
+------------------------
+
+The HTML5FileUploadWidget object requires jQuery UI, along with the Core and Widget components enabled.
+
+This can found here:
+http://jqueryui.com/download
+
+Download and extract the 'js' folder in your 'www' folder (linux/unix example):
+unzip jquery-ui-1.8.21.custom.zip js/jquery-1.7.2.min.js js/jquery-ui-1.8.21.custom.min.js
+
+PHP REQUIREMENTS:
+-----------------
+
+Enable write permissions for web server user to ./uploads/ folder.
